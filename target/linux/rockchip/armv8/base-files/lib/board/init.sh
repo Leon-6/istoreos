@@ -368,13 +368,15 @@ board_set_iface_smp_affinity() {
 	radxa,e20c|\
 	mangopi,m28k|\
 	hlink,h28k)
-		set_iface_cpumask 5 eth0
+		set_iface_cpumask 6 eth0
+  		# set_iface_cpumask 5 eth0
 		# eth1 is rtl8111h, driven by r8169 or r8168
-		if ethtool -i eth1 | grep -Fq 'driver: r8169'; then
-			set_iface_cpumask b eth1
-		else
-			set_iface_cpumask 5 eth1 eth1-0 a
-		fi
+		# if ethtool -i eth1 | grep -Fq 'driver: r8169'; then
+		#	set_iface_cpumask b eth1
+		# else
+		#	set_iface_cpumask 5 eth1 eth1-0 a
+  		set_iface_cpumask 9 eth1 eth1-0 6
+		#fi
 		;;
 	easepi,r2|\
 	ynn,nas|\
